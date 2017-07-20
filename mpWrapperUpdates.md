@@ -86,7 +86,7 @@ list from the actual source file and present them below.
           - Though there are backwards compatibilities, the option variable is now a structure rather than a matrix of doubles.
   - [x] Update: 06/26/2017  
         **Remember**: Now, MATPOWER is to be called through FNCS at a minimum rate of 30 seconds, or whatever desired and set in the ```.zpl``` file as ```time_delta```. That ensures the power flow calculation won't be forced to recalculate for just one single distribution change on a very large scale system.  
-        Purpose:
+        Purpose:  
           - First stage of CCSI 2.8 complexity adding to the simulation environment to test control algorithms:
            - change to AC power flow calculation as default
            - at market cycles, DC OPF is run to get the marginal prices, and immediately after, an AC PF is run with the newly disptached generation to recalculate the bus voltages (in the out matrices for the AC PF only some entries are changed, so the price columns are not overwritten).
