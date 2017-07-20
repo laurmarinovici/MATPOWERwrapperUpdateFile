@@ -74,26 +74,22 @@ list from the actual source file and present them below.
             | SUBSTATIONCOM2    |            7
             | SUBSTATIONCOM3    |            5
             | SUBSTATIONCOM4    |            5
-            | SUBSTATIONCOM5    |            5          
-Update: 02/17/2017
-    Purpose: For the Transactive Energy Systems Platform (TESP) project, a set of metrics are needed. They are to be saved in a JSON structure.
-             jsoncpplib is going to be used to accomodate for saving the necessary data into a file.
-Update: 04/18/2017
-    Purpose: Compliance with the MATPOWER V6: the MATPOWER solve options are given as a structure in version 6.
-             Though there are backwards compatibilities, the option variable is now a structure rather than a matrix of doubles.
-Update: 06/26/2017
-    Remember: Now, MATPOWER is to be called through FNCS at a minimum rate of 30 seconds, or whatever desired and set 
-              in the .zpl file as time_delta. That ensures the power flow calculation won't be forced to recalculate for
-              just one single distribution change on a very large scale system.
-    Purpose: First stage of CCSI 2.8 complexity adding to the simulation environment to test control algorithms:
-      - change to AC power flow calculation as default
-      - at market cycles, DC OPF is run to get the marginal prices, and immediately after an AC PF is run with the
-        newly disptached generation to recalculate the bus voltages (in the out matrices for the AC PF only some entries
-        are changed, so the price columns are not overwritten.
-      - 2 functions and the corresponding variables have been added to the matpowerintegrator files and called in the wrapper,
-        in order to be able to get the maximum dispatchable loads and the demand curve, that is
-          - getMaxDispLoad - to extract the maximum dispatchable load at a bus that has dispatchable load (that is, it is listed
-                             under the generation matrix as negative generation)
-          - getDLDemandCUrve - to extract the coefficients of the demand curve corresponding to the dispatchable loads inserted into
-                               the transmission MATPOWER model as negative loads; hence these coefficients need to be transformed into
-                               the coefficients of a negative supply curve
+            | SUBSTATIONCOM5    |            5  
+            
+  - [x] Update: 02/17/2017  
+        Purpose:
+          - For the Transactive Energy Systems Platform (TESP) project, a set of metrics are needed. They are to be saved in a JSON structure.
+          - ```jsoncpplib``` is going to be used to accomodate for saving the necessary data into a file.
+  - [x] Update: 04/18/2017  
+        Purpose:
+          - Compliance with the **MATPOWER V6**: the MATPOWER solve options are given as a structure in version 6.
+          - Though there are backwards compatibilities, the option variable is now a structure rather than a matrix of doubles.
+  - [x] Update: 06/26/2017  
+        **Remember**: Now, MATPOWER is to be called through FNCS at a minimum rate of 30 seconds, or whatever desired and set in the ```.zpl``` file as ```time_delta```. That ensures the power flow calculation won't be forced to recalculate for just one single distribution change on a very large scale system.  
+        Purpose:
+          - First stage of CCSI 2.8 complexity adding to the simulation environment to test control algorithms:
+            - change to AC power flow calculation as default
+            - at market cycles, DC OPF is run to get the marginal prices, and immediately after, an AC PF is run with the newly disptached generation to recalculate the bus voltages (in the out matrices for the AC PF only some entries are changed, so the price columns are not overwritten).
+            - 2 functions and the corresponding variables have been added to the ```matpowerintegrator``` files and called in the wrapper, in order to be able to get the maximum dispatchable loads and the demand curve, that is
+              - ```getMaxDispLoad``` - to extract the maximum dispatchable load at a bus that has dispatchable load (that is, it is listed under the generation matrix as negative generation)
+              - ```getDLDemandCUrve``` - to extract the coefficients of the demand curve corresponding to the dispatchable loads inserted into the transmission MATPOWER model as negative loads; hence these coefficients need to be transformed into the coefficients of a negative supply curve
