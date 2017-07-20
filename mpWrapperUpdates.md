@@ -88,8 +88,8 @@ list from the actual source file and present them below.
         **Remember**: Now, MATPOWER is to be called through FNCS at a minimum rate of 30 seconds, or whatever desired and set in the ```.zpl``` file as ```time_delta```. That ensures the power flow calculation won't be forced to recalculate for just one single distribution change on a very large scale system.  
         Purpose:
           - First stage of CCSI 2.8 complexity adding to the simulation environment to test control algorithms:
-            - change to AC power flow calculation as default
-            - at market cycles, DC OPF is run to get the marginal prices, and immediately after, an AC PF is run with the newly disptached generation to recalculate the bus voltages (in the out matrices for the AC PF only some entries are changed, so the price columns are not overwritten).
-            - 2 functions and the corresponding variables have been added to the ```matpowerintegrator``` files and called in the wrapper, in order to be able to get the maximum dispatchable loads and the demand curve, that is
-              - ```getMaxDispLoad``` - to extract the maximum dispatchable load at a bus that has dispatchable load (that is, it is listed under the generation matrix as negative generation)
-              - ```getDLDemandCUrve``` - to extract the coefficients of the demand curve corresponding to the dispatchable loads inserted into the transmission MATPOWER model as negative loads; hence these coefficients need to be transformed into the coefficients of a negative supply curve
+           - change to AC power flow calculation as default
+           - at market cycles, DC OPF is run to get the marginal prices, and immediately after, an AC PF is run with the newly disptached generation to recalculate the bus voltages (in the out matrices for the AC PF only some entries are changed, so the price columns are not overwritten).
+           - 2 functions and the corresponding variables have been added to the ```matpowerintegrator``` files and called in the wrapper, in order to be able to get the maximum dispatchable loads and the demand curve, that is
+            - ```getMaxDispLoad``` - to extract the maximum dispatchable load at a bus that has dispatchable load (that is, it is listed under the generation matrix as negative generation)
+            - ```getDLDemandCUrve``` - to extract the coefficients of the demand curve corresponding to the dispatchable loads inserted into the transmission MATPOWER model as negative loads; hence these coefficients need to be transformed into the coefficients of a negative supply curve
