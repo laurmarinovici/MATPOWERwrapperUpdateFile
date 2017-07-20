@@ -30,8 +30,8 @@ Due to the fact that the wrapper file "start_MATPOWER.cpp" has been going throug
 list from the actual source file and present them below.
 
   - [x] Update: 03/05/2014  
-        Purpose:
-          - Implement possibility of running it with multiple instances of GridLAB-D.
+    Purpose:
+      - Implement possibility of running it with multiple instances of GridLAB-D.
   - [x] Update: 03/21/2014  
         Purpose:
           - Added the possibility to change the generation/trsnmission topology, by making on generator go off-line.
