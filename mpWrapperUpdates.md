@@ -68,13 +68,13 @@ list from the actual source file and present them below.
     Purpose:
       - While discussing scalability issue, the idea of having multiple distribution networks (GridLAB-D instances) connected to the same node/bus of a transimission network raised the question of correctly subscribing and aggregating the loads connected to the same bus. One idea is to create a map between generic subscription names and the corresponding location where they are to be placed. A map matrix has been created in the MATPOWER model in the form, similar to:  
 
-      Subscriber name | Subscriber bus number
-      :--------------- | :---------------------:
-      SUBSTATIONCOM1  |            7           
-      SUBSTATIONCOM2  |            7
-      SUBSTATIONCOM3  |            5
-      SUBSTATIONCOM4  |            5
-      SUBSTATIONCOM5  |            5  
+      Subscriber name   | Subscriber bus number
+      :---------------: | :---------------------:
+      SUBSTATIONCOM1    |            7           
+      SUBSTATIONCOM2    |            7
+      SUBSTATIONCOM3    |            5
+      SUBSTATIONCOM4    |            5
+      SUBSTATIONCOM5    |            5  
 
   - [x] Update: 02/17/2017  
     Purpose:
